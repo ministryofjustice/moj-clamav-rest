@@ -22,6 +22,15 @@ Allow some time for the clamav-rest container to finish starting up, then;
     ./test.sh
 
 
+# Push to MoJ repository
+
+Adjust version number, as appropriate
+
+    docker tag clamav-rest registry.service.dsd.io/ministryofjustice/clamav-rest:0.1.0
+
+    docker push registry.service.dsd.io/ministryofjustice/clamav-rest:0.1.0
+
+
 # What is it?
 
 ## The big picture
