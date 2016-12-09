@@ -1,8 +1,26 @@
 Simple [ClamAV](http://www.clamav.net/) REST proxy. Builds on top of [clamav-java](https://github.com/solita/clamav-java) which is a minimal Java client for ClamAV.
 
-# Usage
+This is a component of the [mojfile-uploader](https://github.com/ministryofjustice/mojfile-uploader) project.
 
-docker build -t clamav-rest .
+This project depends on [moj-clamav-daemon](https://github.com/ministryofjustice/moj-clamav-daemon)
+
+# Build
+
+    docker build -t clamav-rest .
+
+# Run
+
+    docker run -d -p 3310:3310 --name clamd clamav   # <-- https://github.com/ministryofjustice/moj-clamav-daemon
+
+    docker run -d -p 8080:8080 --link clamd:clamd --name clamav-rest -e HOST=clamd -e PORT=3310 clamav-rest
+
+# Test
+
+Allow some time for the clamav-rest container to finish starting up, then;
+
+    cd test
+    ./test.sh
+
 
 # What is it?
 
