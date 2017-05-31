@@ -5,7 +5,7 @@ set -m
 host=${HOST:-localhost}
 port=${PORT:-3310}
 # I *think* this is miliseconds. The default is 500.
-timeout=${TIMEOUT:-7000}
+timeout=${TIMEOUT:-15000}
 
 echo "using clamd server: $host:$port timeout: $timeout"
 
